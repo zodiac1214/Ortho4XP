@@ -2526,26 +2526,26 @@ def convert_texture(
                 os.path.join(FNAMES.Geotiff_dir, out_file_name),
             ]
     tentative = 0
-    while True:
-        if not subprocess.call(
-            conv_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT
-        ):
-            break
-        tentative += 1
-        if tentative == 10:
-            UI.lvprint(
-                1,
-                "ERROR: Could not convert texture",
-                os.path.join(tile.build_dir, "textures", out_file_name),
-                "(10 tries)",
-            )
-            break
-        UI.lvprint(
-            1,
-            "WARNING: Could not convert texture",
-            os.path.join(tile.build_dir, "textures", out_file_name),
-        )
-        time.sleep(1)
+    # while True:
+    #     if not subprocess.call(
+    #         conv_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT
+    #     ):
+    #         break
+    #     tentative += 1
+    #     if tentative == 10:
+    #         UI.lvprint(
+    #             1,
+    #             "ERROR: Could not convert texture",
+    #             os.path.join(tile.build_dir, "textures", out_file_name),
+    #             "(10 tries)",
+    #         )
+    #         break
+    #     UI.lvprint(
+    #         1,
+    #         "WARNING: Could not convert texture",
+    #         os.path.join(tile.build_dir, "textures", out_file_name),
+    #     )
+    #     time.sleep(1)
     if erase_tmp_png:
         try:
             os.remove(os.path.join(UI.Ortho4XP_dir, "tmp", png_file_name))
